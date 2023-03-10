@@ -76,13 +76,4 @@ public class FileConfig {
         throw new DatabaseFileException("The property '"+property+"' is not in the file database.ini");
     }
 
-    
-    
-    public static void main(String[] args) {
-        try {
-            System.out.println(new FileConfig().get("driver"));
-        } catch (DatabaseFileException ex) {
-            Logger.getLogger(FileConfig.class.getName()).log(Level.SEVERE, null, ex);
-        }
-    }
 }
