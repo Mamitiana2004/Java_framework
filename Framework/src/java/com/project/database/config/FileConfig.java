@@ -61,13 +61,12 @@ public class FileConfig {
         }
     }
     
-    public String get(String property) throws DatabaseFileException{
-        File file=new File(path);
-        try {
-            Scanner scan=new Scanner(file);
-            while(scan.hasNext()){
-                String line=scan.next();
-                if(line.split("=")[0].equalsIgnoreCase(property)){
+    public String get(String property) throws DatabaseFileException {
+        File file = new File(path);
+        try (Scanner scan = new Scanner(file)) {
+            while (scan.hasNext()) {
+                String line = scan.next();
+                if (line.split("=")[0].equalsIgnoreCase(property)) {
                     return line.split("=")[1];
                 }
             }
@@ -76,6 +75,7 @@ public class FileConfig {
         }
         throw new DatabaseFileException("The property '"+property+"' is not in the file database.ini");
     }
+
     
     
     public static void main(String[] args) {
