@@ -5,6 +5,9 @@
  */
 package test;
 
+import java.io.File;
+import java.net.URL;
+
 /**
  *
  * @author mamit
@@ -18,7 +21,11 @@ public class Test {
         else{
             System.out.println("system");
         }
+        System.out.println(System.getProperty("user.dir"));
     }
+    
+
+
     
     public static void main(String[] args) {
         Test.where();

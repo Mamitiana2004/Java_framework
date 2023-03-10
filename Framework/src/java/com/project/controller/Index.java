@@ -5,8 +5,12 @@
  */
 package com.project.controller;
 
+import com.project.database.config.FileConfig;
+import com.project.database.exception.DatabaseFileException;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -31,7 +35,13 @@ public class Index extends HttpServlet {
      */
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
-        test.Test.where();
+        try {
+            FileConfig config=new FileConfig();
+            System.out.println(config.get("driver"));
+        } catch (DatabaseFileException ex) {
+            Logger.getLogger(Index.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
 
     // <editor-fold defaultstate="collapsed" desc="HttpServlet methods. Click on the + sign on the left to edit the code.">
